@@ -6,7 +6,7 @@
 
 var examples = {};
 
-var treeURL = 'https://api.github.com/repos/PrismJS/prism/git/trees/gh-pages?recursive=1';
+var treeURL = 'https://api.github.com/repos/eliep/prism/git/trees/gh-pages?recursive=1';
 var treePromise = new Promise(function (resolve) {
 	$u.xhr({
 		url: treeURL,
@@ -38,6 +38,7 @@ for (var id in languages) {
 		language.examplesPath = languages.meta.examplesPath.replace(/\{id}/g, id) + '.html';
 
 		fileExists(language.examplesPath).then(function (exists) {
+console.log(language.examplesPath, exists);
 			$u.element.create('label', {
 				attributes: {
 					'data-id': id,
